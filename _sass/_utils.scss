@@ -2,12 +2,12 @@
     display: none;
 
     &-sm {
-        @media (max-width: $breakpoint-small) {
+        @media (max-width: $breakpoint-medium) {
             display: none;
         }
     }
     &-lg {
-        @media (min-width: $breakpoint-small + 1) {
+        @media (min-width: $breakpoint-medium + 1) {
             display: none;
         }
     }

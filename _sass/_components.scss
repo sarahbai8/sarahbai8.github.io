@@ -41,7 +41,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border-bottom: ($baseunit * 1) solid $color-button;
+        border-bottom: ($baseunit * 1) solid $color-text;
         border-left: ($baseunit * 0.75) solid transparent;
         border-right: ($baseunit * 0.75) solid transparent;
     }
