@@ -1,0 +1,28 @@
+<header class="header {% if page.url == "/" %}hide{% endif %}">
+    <div class="hide-lg">
+        <div class="header__container">
+            <div class="header__item header__item--left">
+                <a href="{% if page.url != '/' %}{{ '/' | absolute_url }}{% endif %}" class="header__text header__text--bold">Hi. I'm Sarah.</a>
+            </div>
+            <div class="header__item header__item--right">
+                <a href="{% if page.url != '/' %}{{ '/' | absolute_url }}{% endif %}" class="header__text">All projects</a>
+            </div>
+        </div>
+    </div>
+    <div class="hide-sm">
+        <div class="header__container">
+            <div class="header__item header__item--left">
+                <a href="{% if page.url != '/' %}{{ '/' | absolute_url }}{% endif %}" class="header__text">All projects</a>
+            </div>
+            <div class="header__item header__item--center">
+                <a href="{% if page.url != '/' %}{{ '/' | absolute_url }}{% endif %}" class="header__text header__text--bold">Hi. I'm Sarah.</a>
+            </div>
+            <div class="header__item header__item--right">
+                <a href="mailto:sarah@sarahlilybai.com"
+                    target="_top"
+                    rel="noopener noreferrer"
+                    class="header__text">sarah@sarahlilybai.com</a>
+            </div>
+        </div>
+    </div>
+</header>

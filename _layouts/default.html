@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    <a class="skipnav" href="#sarah-main-content">Skip to after navigation</a>
+    <a href="#sarah-main-content" class="back-to-top" aria-label="Back to top of page"></a>
+
+    {%- include header.html -%}
+
+    <main id="sarah-main-content" class="page" aria-label="Content">
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+
+    {%- include scripts.html -%}
+
+  </body>
+
+</html>

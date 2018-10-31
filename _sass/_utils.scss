@@ -1,0 +1,18 @@
+.hide {
+    display: none;
+
+    &-sm {
+        @media (max-width: $breakpoint-small) {
+            display: none;
+        }
+    }
+    &-lg {
+        @media (min-width: $breakpoint-small) {
+            display: none;
+        }
+    }
+}
+
+.margin-t {
+    margin-top: $baseunit;
+}

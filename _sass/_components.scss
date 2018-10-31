@@ -1,0 +1,78 @@
+.skipnav {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 99999;
+
+    &:focus,
+    &:active {
+        left: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        text-decoration: underline;
+    }
+}
+
+.back-to-top {
+    &--show {
+        bottom: $baseunit * 2;
+        opacity: 1;
+        z-index: 100;
+    }
+
+    position: fixed;
+    right: $baseunit * 2;
+    bottom: $baseunit * -5;
+    height: $baseunit * 4;
+    width: $baseunit * 4;
+    background-color: $color-blue-light;
+    border: 1px solid $color-blue;
+    border-radius: $border-radius;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14);
+    opacity: 0;
+    transition: all 0.2s;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-bottom: ($baseunit * 1) solid $color-button;
+        border-left: ($baseunit * 0.75) solid transparent;
+        border-right: ($baseunit * 0.75) solid transparent;
+    }
+}
+
+.image {
+    width: 100%;
+    animation: fadeIn 1.5s;
+
+    &--with-shadow {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14);
+    }
+}
+
+.button {
+    @extend .text--big;
+
+    display: block;
+    padding: $baseunit;
+    border: $border-width solid $color-button-tint;
+    border-radius: $border-radius;
+    color: $color-button;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.5s;
+
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-button;
+        background-color: $color-blue-light;
+    }
+}
