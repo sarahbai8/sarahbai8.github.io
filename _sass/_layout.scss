@@ -6,7 +6,10 @@
         position: relative;
         width: $breakpoint-large;
         max-width: 100%;
-        margin: 0 auto;
+
+        @include breakpoint($breakpoint-large) {
+            margin: 0 auto;
+        }
     }
 }
 
@@ -29,6 +32,11 @@
         justify-content: space-between;
         position: relative;
         height: $header-height;
+        padding: 0 $baseunit;
+
+        @include breakpoint($breakpoint-large) {
+            padding: 0;
+        }
     }
     &__item {
         &--left,
@@ -66,12 +74,25 @@
         @extend .page__item;
 
         padding: (4 * $baseunit) 0;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row-reverse;
     }
     &__item {
-        width: calc(50% - #{$baseunit / 2});
+        margin: 0 $baseunit;
+
+        & + & {
+            margin-top: 3 * $baseunit;
+        }
+    }
+
+    @include breakpoint($breakpoint-large) {
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+        }
+        &__item {
+            width: calc(50% - #{$baseunit / 2});
+            margin: 0;
+        }
     }
 }
 
@@ -81,38 +102,73 @@
 
     &--sarah {
         .hero__content {
-            top: 45vh;
-            margin-left: auto;
+            top: 55vh;
         }
         .hero__visual {
-            width: 81 * $baseunit;
-            bottom: -3 * $baseunit;
-            left: -25 * $baseunit;
+            top: -2 * $baseunit;
+            right: 0;
+            width: 30 * $baseunit;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            .hero__content {
+                top: 45vh;
+                margin-left: auto;
+            }
+            .hero__visual {
+                bottom: -3 * $baseunit;
+                left: -25 * $baseunit;
+                width: 81 * $baseunit;
+            }
         }
     }
     &--ligercat {
         background-color: $color-blue;
-        margin-bottom: 4 * $baseunit;
+        margin-bottom: 10 * $baseunit;
 
         .hero__content {
-            top: 25vh;
+            top: 4 * $baseunit;
         }
         .hero__visual {
-            width: 41 * $baseunit;
-            top: 3 * $baseunit;
-            right: 0;
+            bottom: -10 * $baseunit;
+            right: -4 * $baseunit;
+            width: 18 * $baseunit;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            margin-bottom: 4 * $baseunit;
+
+            .hero__content {
+                top: 25vh;
+            }
+            .hero__visual {
+                top: 3 * $baseunit;
+                right: 0;
+                width: 41 * $baseunit;
+            }
         }
     }
     &--growing {
         background-color: $color-gray;
 
         .hero__content {
-            top: 53vh;
+            top: 35vh;
         }
         .hero__visual {
-            width: 100 * $baseunit;
             top: -6 * $baseunit;
-            left: -20 * $baseunit;
+            left: -14 * $baseunit;
+            width: 50 * $baseunit;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            .hero__content {
+                top: 53vh;
+            }
+            .hero__visual {
+                top: -6 * $baseunit;
+                left: -20 * $baseunit;
+                width: 100 * $baseunit;
+            }
         }
     }
     &--empathy {
@@ -120,12 +176,23 @@
         overflow: hidden;
 
         .hero__content {
-            top: 40vh;
+            top: 4 * $baseunit;
         }
         .hero__visual {
-            width: 100 * $baseunit;
             bottom: 0;
-            left: 10 * $baseunit;
+            left: 0 * $baseunit;
+            width: 35 * $baseunit;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            .hero__content {
+                top: 40vh;
+            }
+            .hero__visual {
+                bottom: 0;
+                left: 10 * $baseunit;
+                width: 100 * $baseunit;
+            }
         }
     }
 
@@ -136,9 +203,14 @@
     }
     &__content {
         position: relative;
-        width: $text-block-width;
+        margin: 0 $baseunit;
         animation: fadeIn 1.5s, slideUp 0.5s;
         z-index: 20;
+
+        @include breakpoint($breakpoint-large) {
+            width: $text-block-width;
+            margin: 0;
+        }
     }
     &__visual {
         position: absolute;
@@ -151,27 +223,47 @@
 
     &--ligercat {
         background-color: $color-blue-light;
-        margin-bottom: 15 * $baseunit;
+        margin-bottom: 12 * $baseunit;
 
         .landing__content {
             min-height: 70vh;
         }
         .landing__visual {
-            width: 33 * $baseunit;
-            top: 5 * $baseunit;
-            right: 0;
+            top: 13 * $baseunit;
+            right: 1 * $baseunit;
+            width: 20 * $baseunit;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            margin-bottom: 15 * $baseunit;
+
+            .landing__visual {
+                top: 5 * $baseunit;
+                right: 0;
+                width: 33 * $baseunit;
+            }
         }
     }
     &--growing {
         .landing__content {
-            min-height: 90vh;
-            padding-top: 20 * $baseunit;
+            min-height: 100vh;
         }
         .landing__visual {
-            width: 110rem;
-            top: -7rem;
-            left: -30rem;
+            top: 17 * $baseunit;
+            left: -25 * $baseunit;
+            width: 50 * $baseunit;
             z-index: -1;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            .landing__content {
+                padding-top: 20 * $baseunit;
+            }
+            .landing__visual {
+                top: -7 * $baseunit;
+                left: -30 * $baseunit;
+                width: 110 * $baseunit;
+            }
         }
     }
     &--empathy {
@@ -180,21 +272,40 @@
         margin-bottom: $bottom-spacing;
 
         .landing__content {
-            min-height: 60vh;
+            min-height: 70vh;
         }
         .landing__visual {
-            bottom: $bottom-spacing * -1.1;
-            right: -40 * $baseunit;
-            width: 90 * $baseunit;
+            bottom: -15 * $baseunit;
+            right: -25 * $baseunit;
+            width: 50 * $baseunit;
+        }
+
+        @include breakpoint($breakpoint-large) {
+            .landing__content {
+                min-height: 60vh;
+            }
+            .landing__visual {
+                bottom: $bottom-spacing * -1.1;
+                right: -40 * $baseunit;
+                width: 90 * $baseunit;
+            }
         }
     }
 
     &__content {
+        position: relative;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
-        width: $text-block-width;
-        padding: (2 * $baseunit) 0;
+        margin: 0 $baseunit;
+        padding: (4 * $baseunit) 0;
+        z-index: 10;
+
+        @include breakpoint($breakpoint-large) {
+            justify-content: center;
+            width: $text-block-width;
+            margin: 0;
+        }
     }
     &__visual {
         position: absolute;
@@ -204,15 +315,13 @@
 .project-block {
     $content-spacing: 4 * $baseunit;
     $centered-width: $breakpoint-large * 0.75;
-    $min-height: 40vh;
+    $small-min-height: 30vh;
+    $large-min-height: 40vh;
 
     overflow: hidden;
 
     &--allow-overflow {
         overflow: visible;
-    }
-    &--extra-space-bottom {
-        margin-bottom: $content-spacing * 2;
     }
     &--bg {
         &-gray {
@@ -223,70 +332,104 @@
         }
     }
 
+    @include breakpoint($breakpoint-large) {
+        &--extra-space-bottom {
+            margin-bottom: $content-spacing * 2;
+        }
+    }
+
     &__container {
         @extend .page__item;
 
-        min-height: $min-height;
+        min-height: $small-min-height;
+
+        @include breakpoint($breakpoint-large) {
+            min-height: $large-min-height;
+        }
     }
     &__content {
-        padding: $content-spacing 0;
+        padding: $content-spacing 0 ($content-spacing / 2);
+        margin: 0 $baseunit;
 
-        &--centered {
-            max-width: $centered-width;
-            margin: 0 auto;
-        }
-        &--left,
-        &--right {
-            width: $text-block-width;
-        }
-        &--right {
-            margin-left: auto;
+        @include breakpoint($breakpoint-large) {
+            padding: $content-spacing 0;
+
+            &--centered {
+                max-width: $centered-width;
+                margin: 0 auto;
+            }
+            &--left,
+            &--right {
+                width: $text-block-width;
+            }
+            &--right {
+                margin-left: auto;
+            }
         }
     }
     &__visual {
         $text-gutter: 4 * $baseunit;
-        margin-bottom: $content-spacing;
 
-        &--peek {
-            max-height: $min-height;
-            margin-bottom: 0;
-            overflow: hidden;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        max-height: $small-min-height;
+        overflow: hidden;
+
+        &--full {
+            max-height: initial;
         }
-        &--centered {
-            max-width: $centered-width;
-            margin: 0 auto;
+        &--overflow-horizontal {
+            min-width: $text-block-width * 1.5;
         }
-        &--fit-split {
-            width: calc(100% - #{($text-block-width + $text-gutter)});
-        }
-        &--right {
-            position: absolute;
-            left: $text-block-width + $text-gutter;
-        }
-        &--left {
-            position: absolute;
-            right: $text-block-width + $text-gutter;
-        }
-        &--vertically-center {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        &--horizontally-center {
-            position: absolute;
-            left: calc((100% - #{($text-block-width + $text-gutter)}) / 2);
-            right: auto;
-            transform: translateX(-50%);
-        }
-        &--vertically-center.project-block__visual--horizontally-center {
-            transform: translate(-50%, -50%);
-        }
-        &--overflow {
-            &-bottom {
-                top: $baseunit * 2;
+
+        @include breakpoint($breakpoint-large) {
+            left: auto;
+            transform: none;
+            max-height: initial;
+            margin-bottom: $content-spacing;
+
+            &--peek {
+                max-height: $large-min-height;
+                margin-bottom: 0;
+                overflow: hidden;
             }
-            &-horizontal {
-                min-width: $text-block-width * 1.5;
+            &--centered {
+                max-width: $centered-width;
+                margin: 0 auto;
+            }
+            &--fit-split {
+                width: calc(100% - #{($text-block-width + $text-gutter)});
+            }
+            &--right {
+                position: absolute;
+                left: $text-block-width + $text-gutter;
+            }
+            &--left {
+                position: absolute;
+                right: $text-block-width + $text-gutter;
+            }
+            &--vertically-center {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &--horizontally-center {
+                position: absolute;
+                left: calc((100% - #{($text-block-width + $text-gutter)}) / 2);
+                right: auto;
+                transform: translateX(-50%);
+            }
+            &--vertically-center.project-block__visual--horizontally-center {
+                transform: translate(-50%, -50%);
+            }
+            &--overflow {
+                &-bottom {
+                    top: $baseunit * 2;
+                }
+                &-horizontal {
+                    min-width: $text-block-width * 1.5;
+                }
             }
         }
     }
@@ -305,7 +448,11 @@
             margin-top: $baseunit;
         }
         &--2 {
-            width: calc(50% - #{$baseunit / 2});
+            width: 100%;
+
+            @include breakpoint($breakpoint-large) {
+                width: calc(50% - #{$baseunit / 2});
+            }
         }
     }
 }

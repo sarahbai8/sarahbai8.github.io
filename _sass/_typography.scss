@@ -10,7 +10,11 @@
         font-weight: 700;
     }
     &--big {
-        font-size: $baseunit* 1.3;
+        font-size: $baseunit* 1.1;
+
+        @include breakpoint($breakpoint-large) {
+            font-size: $baseunit* 1.3;
+        }
     }
     &--link {
         text-decoration: underline;
