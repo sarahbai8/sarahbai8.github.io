@@ -371,7 +371,7 @@
 
     @include breakpoint($breakpoint-large) {
         &--extra-space-bottom {
-            margin-bottom: $content-spacing * 2;
+            margin-bottom: $content-spacing * 2.5;
         }
     }
 
